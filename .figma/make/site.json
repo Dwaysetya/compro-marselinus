@@ -1,0 +1,10 @@
+{
+  "description": "Generates tailored content or solutions quickly to meet user requests, enhancing productivity for individuals and businesses alike.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
