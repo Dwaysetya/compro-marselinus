@@ -57,6 +57,7 @@ const IconYoutube = ({ size = 20, ...props }) => (
 );
 import { company, practiceAreas, services, teamGroups, experience, faqs, visiMisiNilai, logoImage, directorBio } from "./data";
 import { createCompanyProfile } from "./pdf";
+import GridBackground from "./components/GridBackground";
 
 const reveal = {
   initial: { opacity: 0, y: 40, filter: "blur(8px)" },
@@ -147,6 +148,7 @@ export default function App() {
 
   return (
     <main>
+      <GridBackground />
       <div className="topbar">
         <span>{company.tagline}</span>
         <span style={{ display: "flex", gap: "15px", alignItems: "center" }}>

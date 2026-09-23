@@ -12,6 +12,45 @@
 }
 html { scroll-behavior: smooth; }
 body { margin: 0; font-size: 14px; }
+
+/* --- Animated Grid Background (React Bits Style) --- */
+.grid-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(197, 160, 89, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 160, 89, 0.15) 1px, transparent 1px); /* Gold lines */
+  background-size: 50px 50px;
+  animation: gridMoveDiag 12s linear infinite;
+}
+
+.grid-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, #fafbfc 100%);
+}
+
+@keyframes gridMoveDiag {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 50px 50px; }
+}
 button, input { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; text-decoration: none; }
@@ -152,7 +191,7 @@ header nav > a:hover { color: var(--primary); }
 .org-chart { display: flex; flex-direction: column; align-items: center; margin-top: 40px; position: relative; }
 .org-level { display: flex; justify-content: center; gap: 30px; width: 100%; }
 .split-level { gap: 15vw; }
-.grid-level { flex-wrap: wrap; gap: 20px; max-width: 1050px; margin: 0 auto; justify-content: center; }
+.grid-level { flex-wrap: nowrap; overflow-x: auto; gap: 20px; max-width: 1300px; margin: 0 auto; justify-content: center; padding-bottom: 15px; }
 .org-node { background: white; border: 1px solid #e1e6ee; border-top: 3px solid #1a2943; padding: 30px 25px; border-radius: 12px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(23,49,89,.05); transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: default; display: flex; flex-direction: column; align-items: center; width: 240px; }
 .org-node:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(23,49,89,.12); border-color: var(--accent); }
 .org-node.director { border-top: 4px solid var(--accent); background: #fafbfc; }
