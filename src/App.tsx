@@ -56,7 +56,6 @@ const IconYoutube = ({ size = 20, ...props }) => (
   </svg>
 );
 import { company, practiceAreas, services, teamGroups, experience, faqs, visiMisiNilai, logoImage, directorBio } from "./data";
-import { createCompanyProfile } from "./pdf";
 import GridBackground from "./components/GridBackground";
 
 const reveal = {
@@ -118,7 +117,6 @@ function Logo({ inverse = false }: { inverse?: boolean }) {
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentGalleryIdx, setCurrentGalleryIdx] = useState(0);
-  const [pdfState, setPdfState] = useState<"idle" | "loading" | "error">("idle");
   const [faqOpen, setFaqOpen] = useState(0);
 
   const galleryImages = [
@@ -133,18 +131,6 @@ export default function App() {
     }, 4000);
     return () => clearInterval(timer);
   }, []);
-
-  async function handlePdf(preview = false) {
-    setPdfState("loading");
-    try {
-      const pdf = await createCompanyProfile();
-      if (preview) window.open(pdf.output("bloburl").toString(), "_blank", "noopener,noreferrer");
-      else pdf.save("marselinus-edwin-company-profile.pdf");
-      setPdfState("idle");
-    } catch {
-      setPdfState("error");
-    }
-  }
 
   return (
     <main>
@@ -458,8 +444,10 @@ export default function App() {
           <motion.p {...reveal} className="overline light">PENGALAMAN & PORTOFOLIO</motion.p>
           <motion.h2 {...reveal}>Pengalaman yang memberi Anda <em>keunggulan strategis.</em></motion.h2>
           <motion.p {...reveal}>Berbagai perkara litigasi dan non-litigasi telah kami selesaikan dengan menjunjung tinggi kepentingan klien.</motion.p>
-          <button onClick={() => handlePdf()}><Download size={17} />{pdfState === "loading" ? "Menyiapkan Company Profile..." : "Download Company Profile"}</button>
-          {pdfState === "error" && <small>Gagal membuat PDF. Silakan coba kembali.</small>}
+          <a href="/pdf/Marselinus Edwin & Co Profile.pdf" download className="button">
+            <Download size={17} />
+            Download Company Profile
+          </a>
         </div>
         <div className="portfolio-list">
           {experience.map((exp, i) => (

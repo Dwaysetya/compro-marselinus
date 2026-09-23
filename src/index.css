@@ -212,7 +212,7 @@ header nav > a:hover { color: var(--primary); }
 .results h2, .contact-modern h2 { color: white; font: 600 clamp(38px, 4vw, 55px)/1.2 "Playfair Display", serif; margin: 25px 0; }
 .results h2 em, .contact-modern h2 em { color: var(--accent); }
 .results-copy > p:not(.overline) { color: #9ba5b8; font-size: 14px; line-height: 1.8; max-width: 560px; }
-.results-copy button { margin-top: 30px; padding: 16px 22px; background: white; border: 0; border-radius: 7px; color: var(--primary); font-size: 13px; font-weight: 700; display: flex; gap: 9px; align-items: center; cursor: pointer; }
+.results-copy button, .results-copy .button { margin-top: 30px; padding: 16px 22px; background: white; border: 0; border-radius: 7px; color: var(--primary); font-size: 13px; font-weight: 700; display: flex; gap: 9px; align-items: center; cursor: pointer; text-decoration: none; width: fit-content; }
 .results-copy > small { color: #ffb4b4; display: block; margin-top: 8px; }
 .portfolio-list { display: flex; flex-direction: column; gap: 20px; }
 .portfolio-item { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; display: flex; gap: 20px; align-items: flex-start; border: 1px solid rgba(255,255,255,0.1);}
