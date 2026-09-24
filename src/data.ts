@@ -64,14 +64,14 @@ export const teamGroups = [
     category: "Leadership",
     members: [
       { name: "Marselinus Edwin Hardhian, S.H., CMLC.", role: "Direktur",image: "/images/ustad.jpeg"},
-      { name: "Rinaldi Putra, S.H.", role: "Wakil Direktur Eksternal",image: "/images/rinaldi.png" },
-      { name: "Muhammad Chamdani, S.H.", role: "Wakil Direktur Internal",image: "/images/dhani.png" }
+      { name: "Rinaldi Putra, S.H.", role: "Wakil Direktur",image: "/images/rinaldi.png" },
+      { name: "Muhammad Chamdani, S.H.", role: "Wakil Direktur",image: "/images/dhani.png" }
     ]
   },
   {
     category: "Senior Partners",
     members: [
-      { name: "Boyamin Saiman, S.H.", role: "Senior Partner",image: "/images/bonyamin.jpeg" },
+      { name: "Boyamin Saiman, S.H.", role: "Senior Partner",image: "/images/bonyaminnew.PNG" },
       { name: "Kurniawan Adi Nugroho, S.H.", role: "Senior Partner",image: "/images/kurniawan.jpeg" },
       { name: "Rudy Marjono, S.H.", role: "Senior Partner",image: "/images/rudi.png" },
       { name: "Ardian Pratomo, S.H.", role: "Senior Partner",image: "/images/ardiansyah.png" }
@@ -129,5 +129,17 @@ export const directorBio = {
     "Dalam kiprahnya, ARUKKI di bawah kepemimpinannya tercatat menyampaikan berbagai pengaduan dan mengambil langkah hukum, antara lain terkait penanganan perkara dugaan korupsi dana CSR Bank Indonesia dan Otoritas Jasa Keuangan, gugatan ke PTUN Jakarta, serta sejumlah persoalan hukum lainnya.",
     "Marselinus Edwin Hardhian juga tercatat terlibat dalam sejumlah perkara di Mahkamah Konstitusi sebagai kuasa hukum, menunjukkan keterlibatannya dalam bidang advokasi dan hukum konstitusi.",
     "Di bawah kepemimpinannya, ARUKKI terus membawa semangat pengawasan masyarakat, penegakan hukum, keadilan, serta pengawalan terhadap kepentingan publik sebagai bagian dari perjalanan organisasi."
+  ]
+};
+
+export const directorProfile = {
+  name: "MARSELINUS EDWIN HARDHIAN, S.H., CMLC.",
+  title: "Advokat | Legal Consultant | Director of Marselinus Edwin & Co. Law Office",
+  image: "/images/marselinus.jpeg",
+  paragraphs: [
+    "Marselinus Edwin Hardhian, S.H., CMLC. merupakan seorang profesional hukum dan Advokat yang aktif dalam memberikan layanan dan pendampingan hukum kepada individu maupun badan usaha. Ia merupakan Direktur Marselinus Edwin & Co. Law Office, sebuah kantor hukum yang berorientasi pada penyediaan layanan hukum yang profesional, strategis, dan berintegritas.",
+    "Dalam menjalankan profesinya, Marselinus Edwin Hardhian memiliki perhatian pada penanganan perkara dan persoalan hukum yang membutuhkan pendekatan strategis, analitis, serta berorientasi pada kepastian dan perlindungan hukum bagi klien.",
+    "Selain memiliki latar belakang sebagai Sarjana Hukum (S.H.), Marselinus Edwin Hardhian juga menyandang sertifikasi Certified Mining Legal Consultant (CMLC), yang memperkuat kompetensinya dalam memahami aspek hukum yang berkaitan dengan sektor pertambangan dan kegiatan usaha berbasis sumber daya alam.",
+    "Sebagai pimpinan Marselinus Edwin & Co. Law Office, ia berkomitmen membangun praktik hukum yang mengedepankan integritas, profesionalisme, keberanian, ketelitian, dan kepentingan hukum klien, dengan tetap menjunjung tinggi prinsip hukum dan kode etik profesi."
   ]
 };

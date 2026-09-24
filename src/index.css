@@ -76,11 +76,11 @@ header nav > a:hover { color: var(--primary); }
 .secondary-button { display: inline-flex; align-items: center; gap: 10px; border: 1px solid #d8dee9; border-radius: 4px; color: #1a2945; background: white; }
 .secondary-button:hover { border-color: var(--accent); color: var(--accent); }
 .hero-visual { height: min(650px, 68vw); max-height: 650px; min-height: 470px; position: relative; }
-.portrait-bg { position: absolute; inset: 8% 4% 0 10%; background: linear-gradient(145deg, #e4e9f2, #c7d2e8); border-radius: 46% 46% 18px 18px; overflow: hidden; }
+.portrait-bg { position: absolute; inset: 4% 0% 0% 8%; background: transparent; border: 3px solid var(--accent); overflow: hidden; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: morph-blob 8s ease-in-out infinite alternate; }
 .shape { position: absolute; border: 1px solid rgba(0,11,63,.1); border-radius: 50%; }
 .shape-one { width: 330px; height: 330px; top: -100px; right: -70px; }
 .shape-two { width: 200px; height: 200px; bottom: 60px; left: -80px; }
-.hero-visual > img { position: absolute; width: 76%; height: 90%; bottom: 0; left: 16%; object-fit: cover; object-position: center 18%; border-radius: 40% 40% 14px 14px; filter: saturate(.85); }
+.hero-visual > img { position: absolute; width: 76%; height: 90%; bottom: 0; left: 16%; object-fit: cover; object-position: center 18%; filter: saturate(.85); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; animation: morph-blob 10s ease-in-out infinite alternate-reverse; }
 .section-modern { padding: 115px max(7vw, 24px); }
 .about-modern { display: grid; grid-template-columns: .9fr 1.1fr; gap: 10vw; align-items: center; }
 .about-image { height: 580px; position: relative; }
@@ -97,18 +97,22 @@ header nav > a:hover { color: var(--primary); }
 /* Advocacy & Leadership Section */
 .advocacy-section { background: white; border-top: 1px solid #f0f3f8; }
 .advocacy-container { display: flex; align-items: center; gap: 80px; max-width: 1100px; margin: 0 auto; }
+.advocacy-container.reverse { flex-direction: row-reverse; }
 .advocacy-image { flex: 1; display: flex; justify-content: center; position: relative; }
 .portrait-wrapper { position: relative; max-width: 400px; width: 100%; }
-.portrait-wrapper img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(23,49,89,.15); display: block; border: 4px solid white; outline: 1px solid #e1e6ee; aspect-ratio: 4/5; object-fit: cover; object-position: top center; }
-.portrait-badge { position: absolute; bottom: -25px; right: -25px; background: var(--primary); color: var(--accent); padding: 15px 25px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .05em; box-shadow: 0 10px 25px rgba(26,41,67,0.3); }
+.portrait-wrapper img { width: 100%; border-radius: 40% 40% 14px 14px; box-shadow: 0 20px 40px rgba(23,49,89,.15); display: block; border: 4px solid white; outline: 1px solid #e1e6ee; position: relative; z-index: 1; aspect-ratio: 4/5; object-fit: cover; object-position: top center; transition: all 0.5s ease; }
+.portrait-wrapper::before { content: ''; position: absolute; inset: 8% 4% 0 10%; background: linear-gradient(145deg, #e4e9f2, #c7d2e8); border-radius: 46% 46% 18px 18px; z-index: 0; transition: transform 0.5s ease; }
+.portrait-wrapper:hover::before { transform: translate(-12px, 12px); }
+.portrait-wrapper:hover img { transform: translateY(-5px); box-shadow: 0 25px 45px rgba(23,49,89,.2); }
+.portrait-badge { position: absolute; bottom: -25px; right: -25px; background: var(--primary); color: var(--accent); padding: 15px 25px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .05em; box-shadow: 0 10px 25px rgba(26,41,67,0.3); z-index: 2; }
 .advocacy-content { flex: 1.2; }
 .advocacy-content h2 { font-size: clamp(32px, 4vw, 42px); color: #152440; font-family: "Playfair Display", serif; margin: 15px 0 10px; font-weight: 700; line-height: 1.2; }
 .advocacy-subtitle { font-size: 15px; color: var(--accent); font-weight: 600; margin-bottom: 25px; line-height: 1.5; }
 .advocacy-text p { font-size: 14px; color: #556278; line-height: 1.8; margin-bottom: 16px; text-align: justify; }
 
 @media (max-width: 900px) {
-  .advocacy-container { flex-direction: column; text-align: center; gap: 60px; }
-  .portrait-badge { right: 50%; transform: translateX(50%); bottom: -20px; }
+  .advocacy-container, .advocacy-container.reverse { flex-direction: column; text-align: center; gap: 60px; }
+  .portrait-badge { right: 50%; left: auto; transform: translateX(50%); bottom: -20px; top: auto; }
   .advocacy-text p { text-align: left; }
 }
 /* Advantage / Value Section */
@@ -195,9 +199,15 @@ header nav > a:hover { color: var(--primary); }
 .org-node { background: white; border: 1px solid #e1e6ee; border-top: 3px solid #1a2943; padding: 30px 25px; border-radius: 12px; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(23,49,89,.05); transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: default; display: flex; flex-direction: column; align-items: center; width: 240px; }
 .org-node:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(23,49,89,.12); border-color: var(--accent); }
 .org-node.director { border-top: 4px solid var(--accent); background: #fafbfc; }
-.avatar-placeholder { width: 100px; height: 100px; border-radius: 50%; background: var(--primary); color: var(--accent); font-size: 32px; font-family: "Playfair Display", serif; display: grid; place-items: center; margin: 0 auto 20px; border: 2px solid var(--accent); box-shadow: 0 5px 15px rgba(197,160,89,0.15); transition: transform 0.4s ease; }
-.avatar-image { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; object-position: top center; margin: 0 auto 20px; display: block; border: 2px solid var(--accent); box-shadow: 0 5px 15px rgba(197,160,89,0.15); transition: transform 0.4s ease; background: #eaedf7; }
-.org-node:hover .avatar-placeholder, .org-node:hover .avatar-image { transform: scale(1.1); border-color: var(--primary); }
+@keyframes morph-blob {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 70% 70% 30% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.avatar-placeholder { width: 100px; height: 100px; background: var(--primary); color: var(--accent); font-size: 32px; font-family: "Playfair Display", serif; display: grid; place-items: center; margin: 0 auto 20px; border: 3px solid var(--accent); box-shadow: 0 8px 20px rgba(197,160,89,0.15); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: morph-blob 6s ease-in-out infinite; }
+.avatar-image { width: 100px; height: 100px; object-fit: cover; object-position: top center; margin: 0 auto 20px; display: block; border: 3px solid var(--accent); box-shadow: 0 8px 20px rgba(197,160,89,0.15); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: #eaedf7; border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: morph-blob 6s ease-in-out infinite; }
+.org-node:hover .avatar-placeholder, .org-node:hover .avatar-image { transform: scale(1.12); border-color: var(--primary); box-shadow: 0 12px 25px rgba(26,41,67,0.15); }
 .org-node h4 { font-size: 13px; color: #1a2943; margin-bottom: 8px; line-height: 1.4; font-weight: 600; letter-spacing: .02em; }
 .role-badge { display: inline-flex; align-items: center; justify-content: center; gap: 4px; font-size: 10px; color: var(--accent); background: #fdfbf7; border: 1px solid #f2e9d0; padding: 4px 10px; border-radius: 2px; font-weight: 600; margin-top: 4px; letter-spacing: .05em; text-transform: uppercase; }
 .org-connector { width: 2px; height: 30px; background: #c9d2e8; margin: 0 auto; position: relative; }

@@ -55,7 +55,7 @@ const IconYoutube = ({ size = 20, ...props }) => (
     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
   </svg>
 );
-import { company, practiceAreas, services, teamGroups, experience, faqs, visiMisiNilai, logoImage, directorBio } from "./data";
+import { company, practiceAreas, services, teamGroups, experience, faqs, visiMisiNilai, logoImage, directorBio, directorProfile } from "./data";
 import GridBackground from "./components/GridBackground";
 
 const reveal = {
@@ -98,7 +98,9 @@ function Logo({ inverse = false }: { inverse?: boolean }) {
     <a href="#beranda" className={`logo ${inverse ? "inverse" : ""}`}>
       <img src={logoImage} alt={company.name} style={{ height: "45px", objectFit: "contain" }} />
       <div style={{ marginLeft: "8px" }}>
-        <strong>{company.name}</strong>
+        <strong>
+          Marselinus Edwin <span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600, margin: "0 2px" }}>&</span> Co. Law Office
+        </strong>
         <small>{company.tagline}</small>
       </div>
     </a>
@@ -186,30 +188,31 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* Kepemimpinan & Advokasi Publik */}
-      <section id="kepemimpinan" className="advocacy-section section-modern">
-        <div className="advocacy-container">
+      {/* Profil Direktur */}
+      <section id="profil-direktur" className="advocacy-section section-modern" style={{ background: "#fafbfc" }}>
+        <div className="advocacy-container reverse">
           <motion.div {...reveal} className="advocacy-image">
             <div className="portrait-wrapper">
-              <img src="/images/ustad.jpeg" alt={directorBio.name} />
+              <img src={directorProfile.image} alt={directorProfile.name} />
               <div className="portrait-badge">
                 <ShieldCheck size={20} />
-                <span>ARUKKI</span>
+                <span>DIRECTOR</span>
               </div>
             </div>
           </motion.div>
           <motion.div {...reveal} className="advocacy-content">
-            <p className="overline">KEPEMIMPINAN & ADVOKASI PUBLIK</p>
-            <h2>{directorBio.name}</h2>
-            <h3 className="advocacy-subtitle">{directorBio.title}</h3>
+            <p className="overline">PROFIL DIREKTUR</p>
+            <h2>{directorProfile.name}</h2>
+            <h3 className="advocacy-subtitle">{directorProfile.title}</h3>
             <div className="advocacy-text">
-              {directorBio.paragraphs.map((p, i) => (
+              {directorProfile.paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
           </motion.div>
         </div>
       </section>
+
 
       <section id="nilai" className="advantage-section section-modern">
         <div className="bg-text-marquee">
@@ -427,6 +430,31 @@ export default function App() {
               </>
             );
           })()}
+        </div>
+      </section>
+
+      {/* Kepemimpinan & Advokasi Publik */}
+      <section id="kepemimpinan" className="advocacy-section section-modern">
+        <div className="advocacy-container">
+          <motion.div {...reveal} className="advocacy-image">
+            <div className="portrait-wrapper">
+              <img src="/images/ustad.jpeg" alt={directorBio.name} />
+              <div className="portrait-badge">
+                <ShieldCheck size={20} />
+                <span>ARUKKI</span>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div {...reveal} className="advocacy-content">
+            <p className="overline">KEPEMIMPINAN & ADVOKASI PUBLIK</p>
+            <h2>{directorBio.name}</h2>
+            <h3 className="advocacy-subtitle">{directorBio.title}</h3>
+            <div className="advocacy-text">
+              {directorBio.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
