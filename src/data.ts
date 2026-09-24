@@ -123,6 +123,7 @@ export const logoImage = "/images/logo-marselius.PNG";
 export const directorBio = {
   name: "Marselinus Edwin Hardhian, S.H., CMLC.",
   title: "Ketua Umum Aliansi Rakyat untuk Keadilan dan Kesejahteraan Indonesia (ARUKKI)",
+  image: "/images/marselinusarruki.png",
   paragraphs: [
     "Marselinus Edwin Hardhian, S.H., CMLC. merupakan Ketua Umum Aliansi Rakyat untuk Keadilan dan Kesejahteraan Indonesia (ARUKKI), organisasi masyarakat yang bergerak dalam bidang pengawasan, advokasi, keadilan, dan penegakan hukum.",
     "Sejak dipercaya memimpin ARUKKI pada 2024, Marselinus Edwin Hardhian aktif membawa ARUKKI dalam berbagai agenda advokasi dan pengawasan terhadap proses penegakan hukum serta persoalan yang berkaitan dengan kepentingan publik.",
@@ -135,7 +136,7 @@ export const directorBio = {
 export const directorProfile = {
   name: "MARSELINUS EDWIN HARDHIAN, S.H., CMLC.",
   title: "Advokat | Legal Consultant | Director of Marselinus Edwin & Co. Law Office",
-  image: "/images/marselinus.jpeg",
+  image: "/images/marselinusprofil.png",
   paragraphs: [
     "Marselinus Edwin Hardhian, S.H., CMLC. merupakan seorang profesional hukum dan Advokat yang aktif dalam memberikan layanan dan pendampingan hukum kepada individu maupun badan usaha. Ia merupakan Direktur Marselinus Edwin & Co. Law Office, sebuah kantor hukum yang berorientasi pada penyediaan layanan hukum yang profesional, strategis, dan berintegritas.",
     "Dalam menjalankan profesinya, Marselinus Edwin Hardhian memiliki perhatian pada penanganan perkara dan persoalan hukum yang membutuhkan pendekatan strategis, analitis, serta berorientasi pada kepastian dan perlindungan hukum bagi klien.",

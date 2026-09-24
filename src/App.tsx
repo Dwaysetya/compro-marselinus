@@ -438,7 +438,7 @@ export default function App() {
         <div className="advocacy-container">
           <motion.div {...reveal} className="advocacy-image">
             <div className="portrait-wrapper">
-              <img src="/images/ustad.jpeg" alt={directorBio.name} />
+              <img src={directorBio.image} alt={directorBio.name} />
               <div className="portrait-badge">
                 <ShieldCheck size={20} />
                 <span>ARUKKI</span>
