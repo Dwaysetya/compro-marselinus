@@ -94,20 +94,11 @@ const AuroraBackground = () => (
 
 
 function Logo({ inverse = false }: { inverse?: boolean }) {
-  const parts = company.name.split("&");
   return (
     <a href="#beranda" className={`logo ${inverse ? "inverse" : ""}`}>
       <img src={logoImage} alt={company.name} style={{ height: "45px", objectFit: "contain" }} />
       <div style={{ marginLeft: "8px" }}>
-        <strong>
-          {parts.length > 1 ? (
-            <>
-              {parts[0]}<span style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, margin: "0 2px" }}>&</span>{parts[1]}
-            </>
-          ) : (
-            company.name
-          )}
-        </strong>
+        <strong>{company.name}</strong>
         <small>{company.tagline}</small>
       </div>
     </a>
