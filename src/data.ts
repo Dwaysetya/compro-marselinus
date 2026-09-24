@@ -136,7 +136,7 @@ export const directorBio = {
 export const directorProfile = {
   name: "MARSELINUS EDWIN HARDHIAN, S.H., CMLC.",
   title: "Advokat | Legal Consultant | Director of Marselinus Edwin & Co. Law Office",
-  image: "/images/marselinusprofil.PNG",
+  image: "/images/marselinusprofil.png",
   paragraphs: [
     "Marselinus Edwin Hardhian, S.H., CMLC. merupakan seorang profesional hukum dan Advokat yang aktif dalam memberikan layanan dan pendampingan hukum kepada individu maupun badan usaha. Ia merupakan Direktur Marselinus Edwin & Co. Law Office, sebuah kantor hukum yang berorientasi pada penyediaan layanan hukum yang profesional, strategis, dan berintegritas.",
     "Dalam menjalankan profesinya, Marselinus Edwin Hardhian memiliki perhatian pada penanganan perkara dan persoalan hukum yang membutuhkan pendekatan strategis, analitis, serta berorientasi pada kepastian dan perlindungan hukum bagi klien.",
