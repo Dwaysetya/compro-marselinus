@@ -179,47 +179,39 @@ export async function createCompanyProfile() {
   });
 
   // ----------------------------------------------------
-  // Slide 5: Services (1/2)
+  // Slides for Practice Areas & Services
   // ----------------------------------------------------
-  newSlide(pdf, slideNum++, "Praktik & Layanan Hukum", "04 · Layanan", true);
-  practiceAreas.slice(0, 2).forEach((area, i) => {
-    pdf.setTextColor(gold);
-    pdf.setFont("times", "bold");
-    pdf.setFontSize(22);
-    pdf.text(area.category, 25 + (i * 130), 90);
+  for (let s = 0; s < practiceAreas.length; s += 2) {
+    const chunk = practiceAreas.slice(s, s + 2);
+    const isDark = s === 0;
+    const pageIdx = s / 2 + 1;
+    const totalPages = Math.ceil(practiceAreas.length / 2);
+    newSlide(pdf, slideNum++, `Praktik & Layanan Hukum (${pageIdx}/${totalPages})`, "04 · Layanan", isDark);
     
-    pdf.setDrawColor(gold);
-    pdf.setLineWidth(0.5);
-    pdf.line(25 + (i * 130), 95, 80 + (i * 130), 95);
-    
-    area.items.forEach((item, j) => {
-      // Custom bullet
-      pdf.setFillColor(ivory);
-      pdf.rect(25 + (i * 130), 105.5 + (j * 12) - 3, 3, 3, "F");
-      slideBody(pdf, item, 33 + (i * 130), 105 + (j * 12), 110, true, 13);
+    chunk.forEach((area, i) => {
+      pdf.setTextColor(isDark ? gold : navy);
+      pdf.setFont("times", "bold");
+      pdf.setFontSize(18);
+      pdf.text(area.category, 25 + (i * 130), 85, { maxWidth: 120 });
+      
+      if (area.subCategory) {
+        pdf.setFont("helvetica", "normal");
+        pdf.setFontSize(10);
+        pdf.setTextColor(isDark ? ivory : "#5a667e");
+        pdf.text(area.subCategory, 25 + (i * 130), 91, { maxWidth: 120 });
+      }
+      
+      pdf.setDrawColor(isDark ? gold : navy);
+      pdf.setLineWidth(0.5);
+      pdf.line(25 + (i * 130), 95, 80 + (i * 130), 95);
+      
+      area.items.forEach((item, j) => {
+        pdf.setFillColor(isDark ? ivory : gold);
+        pdf.rect(25 + (i * 130), 103 + (j * 9.5) - 2.5, 2.5, 2.5, "F");
+        slideBody(pdf, item, 32 + (i * 130), 103 + (j * 9.5), 115, isDark, 9.5);
+      });
     });
-  });
-
-  // ----------------------------------------------------
-  // Slide 6: Services (2/2)
-  // ----------------------------------------------------
-  newSlide(pdf, slideNum++, "Praktik & Layanan Hukum", "04 · Layanan");
-  practiceAreas.slice(2).forEach((area, i) => {
-    pdf.setTextColor(navy);
-    pdf.setFont("times", "bold");
-    pdf.setFontSize(22);
-    pdf.text(area.category, 25 + (i * 130), 90);
-    
-    pdf.setDrawColor(navy);
-    pdf.setLineWidth(0.5);
-    pdf.line(25 + (i * 130), 95, 80 + (i * 130), 95);
-    
-    area.items.forEach((item, j) => {
-      pdf.setFillColor(gold);
-      pdf.rect(25 + (i * 130), 105.5 + (j * 12) - 3, 3, 3, "F");
-      slideBody(pdf, item, 33 + (i * 130), 105 + (j * 12), 110, false, 13);
-    });
-  });
+  }
 
   // ----------------------------------------------------
   // Slide 7: Team Portfolio

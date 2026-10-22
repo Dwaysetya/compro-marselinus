@@ -65,8 +65,16 @@ const reveal = {
   transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
 };
 
-const serviceIcons = [BriefcaseBusiness, Scale, UsersRound, Landmark, FileCheck2, ShieldCheck];
+const serviceIcons = [Scale, HeartHandshake, BriefcaseBusiness, Landmark, UsersRound, ShieldCheck];
 const misiIcons = [ShieldCheck, Flag, Scale, BriefcaseBusiness, Lightbulb, HeartHandshake];
+
+const parseServiceItem = (itemStr: string) => {
+  const match = itemStr.split(/\s+[—–-]\s+(.+)/);
+  if (match.length >= 2) {
+    return { title: match[0].trim(), desc: match[1].trim() };
+  }
+  return { title: itemStr.trim(), desc: "" };
+};
 
 // React Bits Style - Aurora Background
 const AuroraBackground = () => (
@@ -140,7 +148,7 @@ export default function App() {
         <nav className={menuOpen ? "open" : ""}>
           {[
             ["Beranda", "#beranda"], ["Tentang Kami", "#tentang"], ["Nilai Kami", "#nilai"], ["Jasa Hukum", "#layanan"],
-            ["Tim Kami", "#tim"], ["Portofolio", "#portofolio"]
+            ["Tim Kami", "#tim"]
           ].map(([label, href]) => <a key={label} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
           <a href="#kontak" className="nav-cta">Konsultasi Sekarang <ArrowRight size={15} /></a>
         </nav>
@@ -159,7 +167,7 @@ export default function App() {
             {company.description}
           </motion.p>
           <motion.div {...reveal} transition={{ ...reveal.transition, delay: 0.18 }} className="hero-buttons">
-            <a href="#kontak" className="primary-button"><MessageCircle size={18} /> Konsultasi Gratis</a>
+            <a href="#kontak" className="primary-button"><MessageCircle size={18} /> Konsultasi</a>
             <a href="#layanan" className="secondary-button">Lihat Jasa Hukum <ArrowRight size={17} /></a>
           </motion.div>
         </div>
@@ -182,9 +190,10 @@ export default function App() {
         <motion.div {...reveal} className="about-content">
           <p className="overline">TENTANG KAMI</p>
           <h2>Berdiri teguh pada hukum, bertindak <em>profesional.</em></h2>
-          <p className="lead">{company.description}</p>
-          <p>Dengan dukungan Direktur, Wakil Direktur, Senior Partners, Partners, dan Support Tim, kami membangun pendekatan hukum yang mengutamakan ketelitian dalam memahami persoalan, keberanian dalam menghadapi tantangan, serta ketegasan dalam memperjuangkan kepentingan hukum klien.</p>
-          <p>Kami percaya bahwa setiap persoalan hukum membutuhkan lebih dari sekadar pemahaman terhadap peraturan. Diperlukan strategi, keberanian, integritas, dan ketepatan dalam mengambil langkah hukum.</p>
+          <p className="lead">{company.description2}</p>
+          <p>Kami memahami bahwa setiap persoalan hukum memiliki karakteristik, kepentingan, dan tantangan yang unik. Oleh karena itu, kami menangani setiap perkara dengan pendekatan yang menyeluruh melalui pemahaman mendalam terhadap fakta, ketentuan hukum, serta target akhir yang ingin dicapai klien.</p>
+          <p>Bagi kami, penyelesaian persoalan hukum tidak hanya membutuhkan pemahaman terhadap peraturan perundang-undangan, tetapi juga ketelitian dalam menganalisis masalah, kecermatan dalam menentukan langkah, serta keberanian dan ketegasan dalam menghadapi setiap tantangan.</p>
+          <p>Didukung oleh tim advokat berpengalaman yang memiliki integritas dan keahlian di bidangnya masing-masing, Marselinus Edwin & Co. Law Office berkomitmen penuh memberikan pendampingan dan solusi hukum yang tepat serta strategis demi melindungi dan memperjuangkan kepentingan hukum setiap klien.</p>
         </motion.div>
       </section>
 
@@ -206,7 +215,7 @@ export default function App() {
             <h3 className="advocacy-subtitle">{directorProfile.title}</h3>
             <div className="advocacy-text">
               {directorProfile.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
+                <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
               ))}
             </div>
           </motion.div>
@@ -266,19 +275,45 @@ export default function App() {
 
       <section id="layanan" className="services section-modern">
         <motion.div {...reveal} className="section-intro split">
-          <div><p className="overline">PRAKTIK & LAYANAN</p><h2>Keahlian menyeluruh untuk <em>setiap kebutuhan.</em></h2></div>
-          <p>Layanan hukum meliputi {services.slice(0,4).join(", ")} dan berbagai keahlian lainnya.</p>
+          <div>
+            <p className="overline">PRACTICE AREAS & LEGAL SERVICES</p>
+            <h2>Keahlian Menyeluruh untuk <em>Setiap Kebutuhan.</em></h2>
+          </div>
+          <p>
+            Layanan hukum profesional terintegrasi meliputi litigasi, non-litigasi, hukum korporasi, perbankan, hubungan industrial, hingga hukum asuransi dan kepatuhan regulasi.
+          </p>
         </motion.div>
         <div className="service-grid nested-services">
           {practiceAreas.map((area, i) => {
             const Icon = serviceIcons[i % serviceIcons.length];
             return (
               <motion.div {...reveal} className="service-card" key={area.category}>
-                <span className="service-number">0{i+1}</span>
-                <Icon />
-                <h3>{area.category}</h3>
-                <ul>
-                  {area.items.map(item => <li key={item}><Check size={14}/> {item}</li>)}
+                <div className="service-card-header">
+                  <div className="service-card-top">
+                    <div className="service-icon-box">
+                      <Icon size={24} />
+                    </div>
+                    <span className="service-number">0{i + 1}</span>
+                  </div>
+                  <h3>{area.category}</h3>
+                  {area.subCategory && <p className="service-subcategory">{area.subCategory}</p>}
+                </div>
+                <div className="service-divider" />
+                <ul className="service-item-list">
+                  {area.items.map((item, idx) => {
+                    const { title, desc } = parseServiceItem(item);
+                    return (
+                      <li key={idx} className="service-item">
+                        <span className="service-check-bullet">
+                          <Check size={12} strokeWidth={2.5} />
+                        </span>
+                        <div className="service-item-text">
+                          <span className="service-item-title">{title}</span>
+                          {desc && <span className="service-item-desc">{desc}</span>}
+                        </div>
+                      </li>
+                    );
+                  })}
                 </ul>
               </motion.div>
             );
@@ -434,7 +469,7 @@ export default function App() {
       </section>
 
       {/* Kepemimpinan & Advokasi Publik */}
-      <section id="kepemimpinan" className="advocacy-section section-modern">
+      {/* <section id="kepemimpinan" className="advocacy-section section-modern">
         <div className="advocacy-container">
           <motion.div {...reveal} className="advocacy-image">
             <div className="portrait-wrapper">
@@ -451,14 +486,14 @@ export default function App() {
             <h3 className="advocacy-subtitle">{directorBio.title}</h3>
             <div className="advocacy-text">
               {directorBio.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
+                <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
               ))}
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
-      <section id="portofolio" className="results">
+      {/* <section id="portofolio" className="results">
         <div className="results-copy">
           <motion.p {...reveal} className="overline light">PENGALAMAN & PORTOFOLIO</motion.p>
           <motion.h2 {...reveal}>Pengalaman yang memberi Anda <em>keunggulan strategis.</em></motion.h2>
@@ -475,7 +510,6 @@ export default function App() {
               <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                 <h4>{exp.title}</h4>
                 <small>{exp.type} • {exp.detail}</small>
-                {/* @ts-ignore */}
                 {exp.link && (
                   <a href={exp.link} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "4px", marginTop: "10px", fontSize: "12px", color: "var(--primary)", fontWeight: 700, padding: "5px 12px", background: "#fdfbf7", border: "1px solid #f2e9d0", borderRadius: "4px" }}>
                     Baca Berita <ArrowRight size={12} />
@@ -485,7 +519,7 @@ export default function App() {
             </motion.div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="faq section-modern">
         <motion.div {...reveal}><p className="overline">PERTANYAAN UMUM</p><h2>Informasi yang perlu <em>Anda ketahui.</em></h2><p>Belum menemukan jawaban? Hubungi tim kami untuk konsultasi awal.</p><a href="#kontak">Hubungi Kami <ArrowRight size={15} /></a></motion.div>
@@ -553,7 +587,6 @@ export default function App() {
               <li><a href="#tentang">Tentang Kami</a></li>
               <li><a href="#layanan">Jasa Hukum</a></li>
               <li><a href="#tim">Tim Pengacara</a></li>
-              <li><a href="#portofolio">Portofolio & Pengalaman</a></li>
             </ul>
           </div>
 

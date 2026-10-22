@@ -4,6 +4,7 @@ export const company = {
   founded: "Tidak dicantumkan",
   tagline: "Hukum Profesional, Strategis, dan Berintegritas.",
   description: "Marselinus Edwin & Co. Law Office merupakan kantor hukum yang berkomitmen memberikan layanan dan solusi hukum secara profesional, strategis, dan berintegritas.",
+  description2: "Marselinus Edwin & Co. Law Office merupakan firma hukum yang berkomitmen memberikan layanan dan solusi hukum secara profesional, strategis, dan berintegritas.",
   address: "Jl. Yado 6 No.C1, RT.3/RW.4, Gandaria Utara, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12140, Indonesia",
   phone: "+62 81197093208",
   email: "marselinusco@gmail.com",
@@ -39,19 +40,77 @@ export const visiMisiNilai = {
 export const practiceAreas = [
   {
     category: "Litigation",
-    items: ["Hukum Pidana", "Hukum Perdata", "Sengketa Bisnis", "Sengketa Pertanahan", "Sengketa Korporasi"]
+    subCategory: "Hukum Acara & Litigasi",
+    items: [
+      "Criminal Law – Hukum Pidana",
+      "Private Law – Hukum Privat / Perdata",
+      "Business & Commercial Disputes – Sengketa Bisnis dan Komersial",
+      "Corporate Disputes – Sengketa Korporasi / Perusahaan",
+      "Land Disputes – Sengketa Pertanahan",
+      "Mining Litigation – Litigasi Pertambangan",
+      "State Administrative Dispute – Sengketa Tata Usaha Negara (TUN)",
+      "Labor Disputes — Perselisihan Ketenagakerjaan",
+      "Divorce Suit – Gugatan Perceraian"
+    ]
+  },
+  {
+    category: "Non-Litigation",
+    subCategory: "Penyelesaian Sengketa Non-Litigasi",
+    items: [
+      "Legal Consultation & Advisory — Konsultasi dan Penasihatan Hukum",
+      "Legal Opinions — Pendapat Hukum",
+      "Contract Drafting & Review — Penyusunan dan Peninjauan Kontrak",
+      "Legal Due Diligence — Uji Tuntas Hukum",
+      "Negotiation — Negosiasi",
+      "Mediation — Mediasi",
+      "Arbitration — Arbitrase"
+    ]
   },
   {
     category: "Corporate & Commercial",
-    items: ["Corporate Legal", "Legal Advisory", "Contract & Agreement", "Legal Opinion", "Legal Due Diligence"]
+    subCategory: "Korporasi & Komersial",
+    items: [
+      "Corporate Law — Hukum Korporasi",
+      "Corporate Governance — Tata Kelola Perusahaan",
+      "Business Transactions — Transaksi Bisnis",
+      "Merger & Acquisition Legal Support — Dukungan Hukum Merger dan Akuisisi",
+      "Mining Legal Advisory — Konsultasi Hukum Pertambangan",
+      "Mining Licensing & Regulatory Compliance — Perizinan Pertambangan dan Kepatuhan terhadap Peraturan",
+      "Mining Contracts & Agreements — Kontrak dan Perjanjian Pertambangan"
+    ]
   },
   {
-    category: "Dispute Resolution",
-    items: ["Negosiasi", "Mediasi", "Penyelesaian Sengketa", "Pelaksanaan / Eksekusi Putusan"]
+    category: "Banking & Finance",
+    subCategory: "Perbankan & Keuangan",
+    items: [
+      "Banking Law — Hukum Perbankan",
+      "Banking Disputes — Sengketa Perbankan",
+      "Banking Legal Advisory — Konsultasi Hukum Perbankan",
+      "Financing & Credit Agreements — Perjanjian Pembiayaan dan Kredit",
+      "Loan Restructuring & Debt Settlement — Restrukturisasi Pinjaman dan Penyelesaian Utang",
+      "Collateral & Security Enforcement — Eksekusi Agunan dan Jaminan"
+    ]
   },
   {
-    category: "Employment",
-    items: ["Hukum Ketenagakerjaan", "Perselisihan Hubungan Industrial"]
+    category: "Employment & Labor Law",
+    subCategory: "Hukum Ketenagakerjaan & Hubungan Industrial",
+    items: [
+      "Employment Agreements & Policies — Perjanjian Kerja dan Kebijakan Ketenagakerjaan",
+      "Industrial Relations & Collective Agreements — Hubungan Industrial dan Perjanjian Kerja Bersama",
+      "Company Regulations Drafting & Review — Penyusunan dan Penelaahan Peraturan Perusahaan",
+      "Employment Legal Advisory — Konsultasi Hukum Ketenagakerjaan",
+      "Labor Compliance — Kepatuhan terhadap Peraturan Ketenagakerjaan"
+    ]
+  },
+  {
+    category: "Insurance Law",
+    subCategory: "Hukum Asuransi",
+    items: [
+      "Insurance Policy Review & Advisory — Penelaahan Polis dan Konsultasi Hukum Asuransi",
+      "Insurance Contract Drafting & Review — Penyusunan dan Penelaahan Kontrak Asuransi",
+      "Insurance Regulatory Compliance — Kepatuhan terhadap Regulasi Asuransi",
+      "Insurance Legal Advisory — Konsultasi Hukum Asuransi"
+    ]
   }
 ];
 
@@ -122,25 +181,27 @@ export const logoImage = "/images/logo-marselius.PNG";
 
 export const directorBio = {
   name: "Marselinus Edwin Hardhian, S.H., CMLC.",
-  title: "Ketua Umum Aliansi Rakyat untuk Keadilan dan Kesejahteraan Indonesia (ARUKKI)",
+  title: "Pendiri sekaligus Ketua Umum Aliansi Rakyat untuk Keadilan dan Kesejahteraan Indonesia (ARUKKI) sejak tahun 2024.",
   image: "/images/marselinusaruki.PNG",
   paragraphs: [
-    "Marselinus Edwin Hardhian, S.H., CMLC. merupakan Ketua Umum Aliansi Rakyat untuk Keadilan dan Kesejahteraan Indonesia (ARUKKI), organisasi masyarakat yang bergerak dalam bidang pengawasan, advokasi, keadilan, dan penegakan hukum.",
-    "Sejak dipercaya memimpin ARUKKI pada 2024, Marselinus Edwin Hardhian aktif membawa ARUKKI dalam berbagai agenda advokasi dan pengawasan terhadap proses penegakan hukum serta persoalan yang berkaitan dengan kepentingan publik.",
-    "Dalam kiprahnya, ARUKKI di bawah kepemimpinannya tercatat menyampaikan berbagai pengaduan dan mengambil langkah hukum, antara lain terkait penanganan perkara dugaan korupsi dana CSR Bank Indonesia dan Otoritas Jasa Keuangan, gugatan ke PTUN Jakarta, serta sejumlah persoalan hukum lainnya.",
-    "Marselinus Edwin Hardhian juga tercatat terlibat dalam sejumlah perkara di Mahkamah Konstitusi sebagai kuasa hukum, menunjukkan keterlibatannya dalam bidang advokasi dan hukum konstitusi.",
-    "Di bawah kepemimpinannya, ARUKKI terus membawa semangat pengawasan masyarakat, penegakan hukum, keadilan, serta pengawalan terhadap kepentingan publik sebagai bagian dari perjalanan organisasi."
+    "ARUKKI merupakan sebuah perkumpulan yang memiliki peran serta fungsi mengadvokasi masyarakat yang mengedepankan kepentingan publik dalam bentuk pengawasan dan pengawalan terhadap proses penegakan hukum di Indonesia.",
+    "Komitmen ARUKKI dalam mengawasi dan mengawal proses penegakan hukum di Indonesia diwujudkan melalui berbagai langkah hukum terhadap perkara-perkara yang dinilai mangkrak atau tidak adanya kepastian hukum dengan cara melayangkan laporan-laporan, mengajukan permohonan praperadilan hingga mengajukan gugatan ke pengadilan tata usaha negara (PTUN).",
+    "Di bawah kepemimpinan Marselinus Edwin Hardhian, ARUKKI turut menyoroti lambannya proses hukum yang melibatkan mantan Menteri Agama Yaqut Cholil Qoumas melalui pengajuan laporan dan permohonan praperadilan. Selain itu, ARUKKI juga mengawal persoalan lambannya pelaksanaan eksekusi putusan pidana terhadap Silfester Matutina melalui pengajuan laporan dan permohonan praperadilan yang ditujukan agar ia segera melaksanakan isi putusan sesuai dengan ketentuan hukum yang berlaku, hingga mengajukan gugatan ke PTUN melawan Presiden terkait cacatnya prosedur dalam pengangkatan Hendarsam Marantoko menjadi Dirjen Imigrasi di lingkungan Kemenimipas.",
+    "Langkah-langkah tersebut mencerminkan komitmen ARUKKI dalam menggunakan mekanisme hukum formal sebagai instrumen untuk memperjuangkan keadilan, mendorong akuntabilitas, dan mengawal kepentingan publik. Pendekatan ini menempatkan proses hukum sebagai sarana untuk meminta pertanggungjawaban atas pelaksanaan kewenangan, sekaligus mendorong agar setiap perkara yang ditangani tidak mengalami ketidakpastian hukum dan keadilan.",
+    "Sebagai Ketua Umum, Marselinus Edwin Hardhian berperan dalam mengarahkan ARUKKI untuk menjalankan fungsi advokasinya secara tegas, terukur, dan bertanggung jawab serta menjunjung tinggi keadilan dan kesejahteraan Indonesia sesuai dengan peraturan perundang-undangan."
   ]
 };
 
 export const directorProfile = {
   name: "MARSELINUS EDWIN HARDHIAN, S.H., CMLC.",
-  title: "Advokat | Legal Consultant | Director of Marselinus Edwin & Co. Law Office",
+  title: "Direktur | Advokat | Certified Mining Legal Consultant",
   image: "/images/marselinusprofil.png",
   paragraphs: [
-    "Marselinus Edwin Hardhian, S.H., CMLC. merupakan seorang profesional hukum dan Advokat yang aktif dalam memberikan layanan dan pendampingan hukum kepada individu maupun badan usaha. Ia merupakan Direktur Marselinus Edwin & Co. Law Office, sebuah kantor hukum yang berorientasi pada penyediaan layanan hukum yang profesional, strategis, dan berintegritas.",
-    "Dalam menjalankan profesinya, Marselinus Edwin Hardhian memiliki perhatian pada penanganan perkara dan persoalan hukum yang membutuhkan pendekatan strategis, analitis, serta berorientasi pada kepastian dan perlindungan hukum bagi klien.",
-    "Selain memiliki latar belakang sebagai Sarjana Hukum (S.H.), Marselinus Edwin Hardhian juga menyandang sertifikasi Certified Mining Legal Consultant (CMLC), yang memperkuat kompetensinya dalam memahami aspek hukum yang berkaitan dengan sektor pertambangan dan kegiatan usaha berbasis sumber daya alam.",
-    "Sebagai pimpinan Marselinus Edwin & Co. Law Office, ia berkomitmen membangun praktik hukum yang mengedepankan integritas, profesionalisme, keberanian, ketelitian, dan kepentingan hukum klien, dengan tetap menjunjung tinggi prinsip hukum dan kode etik profesi."
+    "<strong>Marselinus Edwin Hardhian, S.H., CMLC.</strong> Merupakan seorang Advokat dan praktisi hukum berpengalaman yang menangani berbagai perkara litigasi maupun non-litigasi. Karir hukumnya sebagai Advokat dimulai dengan menimba ilmu di Boyamin Saiman Law Firm, sebuah kantor hukum yang telah dikenal luas oleh masyarakat. Berbekal pengalaman tersebut, ia kemudian mendirikan kantor hukumnya sendiri dengan nama <strong>Marselinus Edwin and Co Law Office</strong>.",
+    "Selain gelar akademis, ia memiliki keahlian spesifik sebagai <strong>Certified Mining Legal Consultant (CMLC)</strong> atau Konsultan Hukum Pertambangan Bersertifikat. Dengan spesialisasi ini, ia juga tergabung dalam organisasi <strong>PERKHAPPI</strong> (Perkumpulan Konsultan Hukum dan Pengacara Pertambangan Indonesia).",
+    "Sebagai seorang litigator, Marselinus telah memberikan layanan hukum yang komprehensif bagi klien perorangan maupun badan usaha. Rekam jejak perkaranya mencakup sektor Perdata, Pidana, Arbitrase, Tata Usaha Negara, Peradilan Agama, hingga Perselisihan Hubungan Industrial (PHI). Di tingkat hukum tata negara, ia juga berpengalaman dalam pengujian Undang-Undang di Mahkamah Konstitusi serta pengujian peraturan di bawah Undang-Undang di Mahkamah Agung.",
+    "Selain itu, ia juga telah dipercaya dan memiliki pengalaman sebagai konsultan hukum tetap (retainer lawyer) di berbagai perusahaan swasta, BUMN, dan BUMD khususnya yang bergerak di <strong>sektor pertambangan dan jasa keuangan</strong>.",
+    "Dalam menjalankan profesinya, ia memberikan layanan konsultasi, pendampingan, dan penanganan perkara hukum secara profesional untuk memperjuangkan tujuan Klien. Hal ini dilakukan dengan memperhatikan karakteristik permasalahan, peraturan perundang-undangan, analisis terhadap data dan fakta, kedudukan hukum klien, serta melakukan mitigasi terhadap risiko hukum yang dapat timbul dari setiap keputusan dan tindakan, dengan tetap menjaga kode etik sebagai seorang Advokat.",
+    "Kini, selaku Direktur Marselinus Edwin and Co Law Office, ia memimpin layanan hukum dengan menempatkan integritas, profesionalisme, keberanian, ketelitian, dan tanggung jawab sebagai pilar utama. Komitmen ini memastikan kepentingan hukum setiap klien diperjuangkan secara maksimal lewat strategi yang tepat dan sesuai dengan hukum yang berlaku."
   ]
 };
