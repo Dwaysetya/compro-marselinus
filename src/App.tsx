@@ -163,7 +163,7 @@ export default function App() {
           <motion.h1 {...reveal} transition={{ ...reveal.transition, delay: 0.06 }}>
             Solusi hukum yang <em>strategis</em> dan berintegritas.
           </motion.h1>
-          <motion.p {...reveal} transition={{ ...reveal.transition, delay: 0.12 }}>
+          <motion.p {...reveal} transition={{ ...reveal.transition, delay: 0.12 }} className="text-justify">
             {company.description}
           </motion.p>
           <motion.div {...reveal} transition={{ ...reveal.transition, delay: 0.18 }} className="hero-buttons">
@@ -215,7 +215,7 @@ export default function App() {
             <h3 className="advocacy-subtitle">{directorProfile.title}</h3>
             <div className="advocacy-text">
               {directorProfile.paragraphs.map((p, i) => (
-                <p key={i} dangerouslySetInnerHTML={{ __html: p }} />
+                <p key={i}>{p}</p>
               ))}
             </div>
           </motion.div>
